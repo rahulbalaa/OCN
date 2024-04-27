@@ -24,6 +24,8 @@ plt.show()
 
 
 
+
+
 #expt2b-GIF
 import numpy as np
 import matplotlib.pyplot as plt
