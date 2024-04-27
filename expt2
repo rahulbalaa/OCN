@@ -1,0 +1,51 @@
+#expt2a-SIF
+import numpy as np
+import matplotlib.pyplot as plt
+a = 30
+a1 = 125
+delta = 0.01
+n1 = 1.5
+n2 = n1*np.sqrt(1-2*delta)
+n = np.linspace(-(a1+1),a1,a1+1)*[0]
+r = np.linspace(-(a1+1),a1,a1+1)
+for i in range(-(a1+1),(a1+1)):
+    if (r[i]<a and r[i]>(-a)):
+        n[i] = n1
+    else:
+        n[i] = n2
+plt.plot(r,n)
+plt.xlabel("radius")
+plt.ylabel("R.I")
+plt.title("Refractive Index profile of step index fiber")
+plt.show()
+
+
+
+
+
+
+#expt2b-GIF
+import numpy as np
+import matplotlib.pyplot as plt
+a = 30
+a1 = 125
+delta = 0.01
+n1 = 1.5
+alpha = np.linspace(0,10,11)
+n2 = n1*np.sqrt(1-2*delta)
+r = np.linspace(0,a1,a1+1)
+for j in alpha:
+    n1 = 1.5
+    n = [0]*a1
+    for i in r:
+        if (i<a):
+            n[int(i)] = n1*np.sqrt(1-2*delta*(i/a)**j)
+            n.append(n1)
+        else:
+            n[min(int(round(i)), a1-1)] = n2
+            n.append(n2)
+    plt.plot(r[:len(n)], n[:len(r)])
+plt.xlabel("radius")
+plt.ylabel("R.I")
+plt.title("Refractive Index profile of Graded index fiber")
+plt.show()
