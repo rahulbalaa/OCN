@@ -1,0 +1,9 @@
+expt1
+import math
+u1, u2 = 1.50, 1.47
+theta_c = math.degrees(math.asin(u2 / u1))
+print("Critical angle is:", round(theta_c, 4))
+NA = math.sqrt(u1**2 - u2**2)
+print("Numerical aperture is:", round(NA, 4))
+theta_a = math.degrees(math.asin(NA))
+print("Acceptance angle is:", round(theta_a, 4))
